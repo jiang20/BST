@@ -1,9 +1,13 @@
 # BST
-package BinarySearchTree;
+## 用以下实现BST的部分操作
+    package BinarySearchTree;
 
-import java.util.Scanner;
-
-public class Main {
+    import java.util.Scanner;
+    import java.nio.BufferUnderflowException;
+    import java.util.LinkedList;
+     //输入操作方法和操作数，且操作方法与操作数、操作数与操作数之间空一个空格
+     //用use_function方法来确定使用的操作
+    public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         long  operation_num = input.nextLong();
@@ -59,27 +63,24 @@ public class Main {
     }
     
     
-    package BinarySearchTree;
-
-import java.nio.BufferUnderflowException;
-import java.util.LinkedList;
-
-//insert delete delete_less_than delete_greater_than delete_interval find find_ith
-public class BinarySearchTree{
-    private BinaryNode root;//奇怪为啥可以这样定义
-    private long num ;
-    private static class BinaryNode
-    {
-        long element;//data
-        BinaryNode left;//left node
-        BinaryNode right;//right node
-        long frequency;
-        BinaryNode(long element){
-            this.setElement(element);
-            this.left = null;
-            this.right = null;
-            frequency = 1;
-        }
+    
+     //insert delete delete_less_than delete_greater_than delete_interval find find_ith
+       //考虑插入重复元素，用新的成员变量frequency来定义它的次数，删除时只删除一个，任意一个均可
+    public class BinarySearchTree{
+       private BinaryNode root;//奇怪为啥可以这样定义
+       private long num ;
+       private static class BinaryNode
+      {
+          long element;//data
+          BinaryNode left;//left node
+          BinaryNode right;//right node
+          long frequency;
+          BinaryNode(long element){
+              this.setElement(element);
+              this.left = null;
+              this.right = null;
+              frequency = 1;
+          }
 
         BinaryNode(long element, BinaryNode left, BinaryNode right){
             this.setElement(element);
